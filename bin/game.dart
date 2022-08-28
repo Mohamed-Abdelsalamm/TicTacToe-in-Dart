@@ -9,7 +9,7 @@ class Game {
   int turn=1;
   int? row = 3;
   int? cols = 3;
-  String? play;
+  int? play;
   bool win = true;
 
 
@@ -36,39 +36,39 @@ class Game {
 
   void transformationX()
   {
-    if (play == '1')
+    if (play == 1)
     {
       matrix[0][0] = 'x';
     }
-    else if (play == '2')
+    else if (play == 2)
       {
         matrix[0][1] = 'x';
       }
-    else if (play == '3')
+    else if (play == 3)
       {
         matrix[0][2] = 'x';
       }
-    else if (play == '4')
+    else if (play == 4)
       {
         matrix[1][0] = 'x';
       }
-    else if (play == '5')
+    else if (play == 5)
       {
         matrix[1][1] = 'x';
       }
-    else if (play == '6')
+    else if (play == 6)
       {
         matrix[1][2] = 'x';
       }
-    else if (play == '7')
+    else if (play == 7)
       {
         matrix[2][0] = 'x';
       }
-    else if (play == '8')
+    else if (play == 8)
       {
         matrix[2][1] = 'x';
       }
-    else if (play == '9')
+    else if (play == 9)
       {
         matrix[2][2] = 'x';
       }
@@ -78,39 +78,39 @@ class Game {
 
   void transformationY()
   {
-    if (play == '1')
+    if (play == 1)
     {
       matrix[0][0] = 'y';
     }
-    else if (play == '2')
+    else if (play == 2)
     {
       matrix[0][1] = 'y';
     }
-    else if (play == '3')
+    else if (play == 3)
     {
       matrix[0][2] = 'y';
     }
-    else if (play == '4')
+    else if (play == 4)
     {
       matrix[1][0] = 'y';
     }
-    else if (play == '5')
+    else if (play == 5)
     {
       matrix[1][1] = 'y';
     }
-    else if (play == '6')
+    else if (play == 6)
     {
       matrix[1][2] = 'y';
     }
-    else if (play == '7')
+    else if (play == 7)
     {
       matrix[2][0] = 'y';
     }
-    else if (play == '8')
+    else if (play == 8)
     {
       matrix[2][1] = 'y';
     }
-    else if (play == '9')
+    else if (play == 9)
     {
       matrix[2][2] = 'y';
     }
@@ -212,20 +212,45 @@ class Game {
 
   void playerOne()
   {
-    print('player 1 turn  (X) \n');
-    print('Enter number from  1 ----> 9');
-    turn++;
-    play = stdin.readLineSync();
+    while (true)
+    {
+      print('player 1 turn  (X) \n');
+      print('Enter number from  1 ----> 9');
+
+      play = int.parse(stdin.readLineSync()!);
+      if (play! >= 1 && play! <= 9 )
+        {
+          turn++;
+          break;
+        }
+      else
+        {
+          print('Enter valid number 1 ---> 9\n');
+        }
+    }
 
   }
 
 
  void playerTwo()
   {
-    print('player 2 turn  (Y) \n');
-    print('Enter number from  1 ----> 9');
-    turn++;
-    play = stdin.readLineSync();
+    while (true)
+    {
+      print('player 2 turn  (Y) \n');
+      print('Enter number from  (1 ----> 9)');
+      play = int.parse(stdin.readLineSync()!);
+
+      if (play! >= 1 && play! <= 9 )
+      {
+        turn++;
+        break;
+      }
+      else
+      {
+        print('Enter valid number (1 ---> 9)\n');
+      }
+    }
+
   }
 
 
