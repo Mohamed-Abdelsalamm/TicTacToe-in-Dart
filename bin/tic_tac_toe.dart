@@ -1,9 +1,8 @@
 import 'game.dart';
 
 void main() {
-  bool x = true;
   var game = Game();
-  while (x == true) {
+  while (true) {
     if (game.turn % 2 != 0)
     {
       game.playerOne();
